@@ -5,7 +5,7 @@ include 'connect.php';
 if (isset($_POST['add_to_cart'])) {
 
    $product_id = $_POST['product_id'];
-   $product_id = filter_var($product_id, FILTER_SANITIZE_STRING);
+   $product_id = filter_var($product_id);
 
    $verify_product = $conn->prepare("SELECT * FROM `products` WHERE id = ?");
    $verify_product->execute([$product_id]);
